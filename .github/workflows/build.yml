@@ -72,11 +72,11 @@ jobs:
           fi
 
       - name: Update PO
-        if: env.POT_CHANGED
+        if: env.POT_CHANGED == 'true'
         run: make po
 
       - uses: stefanzweifel/git-auto-commit-action@v7
-        if: env.POT_CHANGED
+        if: env.POT_CHANGED == 'true'
         with:
           commit_message: 'Update localization'
           file_pattern: 'resources/po'
