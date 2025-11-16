@@ -159,7 +159,7 @@ const Num = `[+-]?(?:\\d*\\.\\d+|\\d+)(?:[eE][+-]?\\d+)?`;
 // Units
 const Angle = `(?:(${Num})(deg|grad|rad|turn)?|none)`;
 const Percent = `(?:(${Num})(%)?|none)`;
-const Alpha = `(?:\\s*(?:\\/|\\s)\\s*{Percent})?`;
+const Alpha = `(?:\\s*(?:\\/|,|\\s)\\s*${Percent})?`;
 const Comma = `(?:\\s+|\\s*,\\s*)`;
 
 // Color regular expressions
