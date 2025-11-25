@@ -336,7 +336,9 @@ export class DependenciesWarningButton extends Gtk.MenuButton {
 		const gdaDialog = new GuideDialog(
 			_('Libgda Not Installed'),
 			_(
-				'Libgda is required to store clipboard history between sessions. Install either libgda 5.0 or 6.0 with SQLite support to use this feature.',
+				'Libgda is required to store clipboard history between sessions. ' +
+					'Install either libgda 5.0 or 6.0 with SQLite support to use this feature. ' +
+					'After installing libgda you will need to log out or restart your system.',
 			),
 			_('Install Libgda'),
 			'libgda libgda-sqlite',
@@ -347,7 +349,10 @@ export class DependenciesWarningButton extends Gtk.MenuButton {
 
 		const gsoundDialog = new GuideDialog(
 			_('GSound Not Installed'),
-			_('GSound is required to play sound effects. Install GSound to use this feature.'),
+			_(
+				'GSound is required to play sound effects. Install GSound to use this feature. ' +
+					'After installing GSound you will need to log out or restart your system.',
+			),
 			_('Install GSound'),
 			'gsound',
 			'gsound',
