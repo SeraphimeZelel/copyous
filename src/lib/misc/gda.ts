@@ -33,7 +33,13 @@ export function new_connection(Gda: typeof Gda5, cncString: string): Gda5.Connec
 		});
 	} else {
 		// Gda 5
-		// Using this for Gda 6 will ignore the connection string and store the database in the home directory
+		const conn = Gda.Connection.new_from_string('SQLite', cncString, null, Gda.ConnectionOptions.THREAD_ISOLATED);
+		if (conn.cnc_string === cncString) return conn;
+
+		// Workaround for database not being stored only in home location
+		// Two <user>:<password>@ pairs are required since the first is stripped at creation and the second is stripped
+		// while opening the connection.
+		cncString = `:@:@${cncString}`;
 		return Gda.Connection.new_from_string('SQLite', cncString, null, Gda.ConnectionOptions.THREAD_ISOLATED);
 	}
 }
